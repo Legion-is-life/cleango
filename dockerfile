@@ -33,3 +33,6 @@ EXPOSE 5000
 
 # Run the application with proper initialization
 CMD ["sh", "-c", "python app.py"]
+LABEL org.opencontainers.image.source=https://github.com/Legion-is-life/cleango
+LABEL org.opencontainers.image.description="CleanGo"
+LABEL org.opencontainers.image.licenses=Apache2.0
