@@ -1,0 +1,340 @@
+/* static/style.css - Style definitions for CleanGo web interface */
+
+/* Root variables for theming */
+:root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --accent: #4CAF50;
+    --accent-hover: #45a049;
+    --error: #ff4444;
+    --success: #00C851;
+    --border: #404040;
+}
+
+/* Reset default styles and set box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Container for overall layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Header information section */
+.header-info {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.status-indicator,
+.version-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.version-info span:last-child {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* Status badges */
+.status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+}
+
+.status.connected {
+    background-color: var(--success);
+}
+
+.status.disconnected {
+    background-color: var(--error);
+}
+
+/* Statistics container */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Individual stat boxes */
+.stat-box {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.stat-box h3 {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.stat-box p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Actions section */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+/* Clean button section */
+.clean-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Clean status display */
+.clean-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.clean-status #clean-time {
+    color: var(--text-primary);
+}
+
+.clean-status #clean-type {
+    padding: 0.1rem 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--bg-secondary);
+    font-size: 0.8rem;
+}
+
+.clean-status #clean-result {
+    color: var(--text-primary);
+}
+
+.clean-status #clean-result.error {
+    color: var(--error);
+}
+
+.clean-status #clean-result.success {
+    color: var(--success);
+}
+
+/* Primary button styling */
+.primary-button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.primary-button:hover {
+    background-color: var(--accent-hover);
+}
+
+.primary-button:disabled {
+    background-color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+/* Search input styling */
+.search-container {
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Table container styling */
+.table-container {
+    background-color: var(--bg-secondary);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+/* Table controls */
+.table-controls {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid var(--border);
+}
+
+.rows-per-page {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#per-page-select {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+/* Pagination controls */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.page-button {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.page-button:hover:not(:disabled) {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.page-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#page-info {
+    color: var(--text-secondary);
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    /* Container adjustments for smaller screens */
+    .container {
+        padding: 1rem;
+    }
+
+    /* Header adjustments */
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .header-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Actions section adjustments */
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .clean-section {
+        width: 100%;
+    }
+
+    .clean-status {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .search-container {
+        max-width: 100%;
+    }
+
+    /* Table adjustments */
+    th,
+    td {
+        padding: 0.75rem;
+    }
+
+    .table-controls {
+        justify-content: center;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+    }
+}

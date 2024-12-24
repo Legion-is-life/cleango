@@ -1,0 +1,96 @@
+<!-- templates/index.html - Main web interface for CleanGo application -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanGo Web Interface</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header section with application title and status indicators -->
+        <header>
+            <h1>CleanGo Web Interface</h1>
+            <div class="header-info">
+                <div class="status-indicator">
+                    <span>qBittorrent Status:</span>
+                    <span id="connection-status" class="status disconnected">Disconnected</span>
+                </div>
+                <div class="version-info">
+                    <span>Version:</span>
+                    <span id="app-version">-</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Statistics section showing total torrents deleted and space freed -->
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3>Total Torrents Deleted</h3>
+                <p id="total-deleted">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Total Space Freed</h3>
+                <p id="total-freed">0 GB</p>
+            </div>
+        </div>
+
+        <!-- Actions section with clean button and search functionality -->
+        <div class="actions">
+            <div class="clean-section">
+                <!-- Button to trigger cleaning process -->
+                <button id="clean-button" class="primary-button">Clean Torrents</button>
+                <div class="clean-status">
+                    <span>Last Clean:</span>
+                    <span id="clean-time">Never</span>
+                    <span id="clean-type"></span>
+                    <span id="clean-result"></span>
+                </div>
+            </div>
+            <div class="search-container">
+                <!-- Input field to search deleted torrents -->
+                <input type="text" id="search-input" placeholder="Search deleted torrents...">
+            </div>
+        </div>
+
+        <!-- Table container displaying deleted torrents -->
+        <div class="table-container">
+            <div class="table-controls">
+                <div class="rows-per-page">
+                    <label for="per-page-select">Rows per page:</label>
+                    <select id="per-page-select">
+                        <option value="20">20</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Size</th>
+                        <th>Tracker Message</th>
+                        <th>Deletion Date</th>
+                    </tr>
+                </thead>
+                <tbody id="torrents-table">
+                    <!-- Data will be populated by script.js -->
+                </tbody>
+            </table>
+            <div class="pagination">
+                <!-- Pagination controls -->
+                <button id="prev-page" class="page-button">< Previous</button>
+                <span id="page-info">Page 1 of 1</span>
+                <button id="next-page" class="page-button">Next ></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include external JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
